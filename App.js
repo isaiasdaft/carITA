@@ -14,7 +14,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Login">
           <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Drawer" component={MyDrawer} />
+          <Stack.Screen name="Regresar" component={MyDrawer} />
         </Stack.Navigator>
       </NavigationContainer>
       </NativeBaseProvider>

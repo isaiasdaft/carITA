@@ -7,7 +7,7 @@ const Login = ({ navigation }) => {
     // Aquí iría el código para validar las credenciales del usuario y guardar la información de sesión
 
     // Una vez que el usuario ha iniciado sesión, navegamos a la pantalla del cajón
-    navigation.navigate("Drawer");
+    navigation.navigate("Regresar");
   }
 
   return <Center w="100%">
