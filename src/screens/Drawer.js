@@ -6,7 +6,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 function Feed() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Feed Screen</Text>
+      <Text>Home</Text>
     </View>
   );
 }
@@ -14,7 +14,7 @@ function Feed() {
 function Article() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Article Screen</Text>
+      <Text>Appoinment</Text>
     </View>
   );
 }
@@ -22,7 +22,7 @@ function Article() {
 function Contacts() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Feed Screen</Text>
+        <Text>Contacts</Text>
       </View>
     );
   }
@@ -30,14 +30,14 @@ function Contacts() {
   function Storedcars() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Article Screen</Text>
+        <Text>Storedcars</Text>
       </View>
     );
   }
   function History() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Feed Screen</Text>
+        <Text>History</Text>
       </View>
     );
   }
@@ -45,14 +45,14 @@ function Contacts() {
   function Aboutus() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Article Screen</Text>
+        <Text>Aboutus</Text>
       </View>
     );
   }
   function Rateus() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Feed Screen</Text>
+        <Text>Rateus</Text>
       </View>
     );
   }
