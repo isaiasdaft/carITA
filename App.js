@@ -1,38 +1,28 @@
-import React from "react";
-import {
-  Text,
-  Link,
-  HStack,
-  Center,
-  Heading,
-  Switch,
-  useColorMode,
-  NativeBaseProvider,
-  extendTheme,
-  VStack,
-  Box,
-} from "native-base";
-import NativeBaseIcon from "./components/NativeBaseIcon";
-import { Platform } from "react-native";
-import Login from "./src/screens/Login";
 
-// Define the config
-const config = {
-  useSystemColorMode: false,
-  initialColorMode: "dark",
-};
+import * as React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import Login from './src/screens/Login';
+import { NativeBaseProvider } from 'native-base';
+import MyDrawer from './src/screens/Drawer';
 
-// extend the theme
-export const theme = extendTheme({ config });
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NativeBaseProvider>
-             <Center flex={1} px="3">
-                <Login />
-            </Center>
-         </NativeBaseProvider>
-  );
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Login">
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Drawer" component={MyDrawer} />
+        </Stack.Navigator>
+      </NavigationContainer>
+      </NativeBaseProvider>
+      );
 }
+
+
+
+
 
 

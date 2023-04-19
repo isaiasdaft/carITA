@@ -1,7 +1,15 @@
 import * as React from "react";
-import { Box, Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, NativeBaseProvider } from "native-base";
+import { Box, Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center } from "native-base";
 
-const Login = () => {
+const Login = ({ navigation }) => {
+
+  const handleLogin = () => {
+    // Aquí iría el código para validar las credenciales del usuario y guardar la información de sesión
+
+    // Una vez que el usuario ha iniciado sesión, navegamos a la pantalla del cajón
+    navigation.navigate("Drawer");
+  }
+
   return <Center w="100%">
       <Box safeArea p="2" py="8" w="90%" maxW="290">
         <Heading size="lg" fontWeight="600" color="coolGray.800" _dark={{
@@ -31,7 +39,7 @@ const Login = () => {
               Forget Password?
             </Link>
           </FormControl>
-          <Button mt="2" colorScheme="indigo">
+          <Button mt="2" colorScheme="indigo" onPress={handleLogin}>
             Sign in
           </Button>
           <HStack mt="6" justifyContent="center">
@@ -54,12 +62,3 @@ const Login = () => {
 };
 
 export default Login;
-    // export default () => {
-    //     return (
-    //       <NativeBaseProvider>
-    //         <Center flex={1} px="3">
-    //             <Example />
-    //         </Center>
-    //       </NativeBaseProvider>
-    //     );
-    // };
