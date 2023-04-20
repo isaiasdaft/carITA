@@ -3,7 +3,10 @@ import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Inicio from './Inicio';
+import Historial from './Historial';
+import About from './About_us';
 import { NativeBaseProvider } from 'native-base';
+
 
 
 function Feed() {
@@ -42,7 +45,7 @@ function Contacts() {
   function History() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>History</Text>
+        <Historial />
       </View>
     );
   }
@@ -50,7 +53,7 @@ function Contacts() {
   function Aboutus() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Aboutus</Text>
+        <About />
       </View>
     );
   }
