@@ -5,6 +5,8 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import Inicio from './Inicio';
 import Historial from './Historial';
 import About from './About_us';
+import Rate from './Rate_us';
+import Contac from './Contact';
 import { NativeBaseProvider } from 'native-base';
 
 
@@ -30,7 +32,7 @@ function Article() {
 function Contacts() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Contacts</Text>
+        <Contac />
       </View>
     );
   }
@@ -60,7 +62,7 @@ function Contacts() {
   function Rateus() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Rateus</Text>
+        <Rate />
       </View>
     );
   }
