@@ -2,12 +2,17 @@ import * as React from 'react';
 import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import Inicio from './Inicio';
+import { NativeBaseProvider } from 'native-base';
+
 
 function Feed() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home</Text>
-    </View>
+     
+                <Inicio />
+          
+    </View> 
   );
 }
 
@@ -63,8 +68,11 @@ const Drawer = createDrawerNavigator();
 
 export default function MyDrawer() {
   return (
+    <NativeBaseProvider>
     <Drawer.Navigator useLegacyImplementation>
+      
       <Drawer.Screen name="Home" component={Feed} />
+      
       <Drawer.Screen name="Appoinment" component={Article} />
       <Drawer.Screen name="Contacts" component={Contacts} />
       <Drawer.Screen name="Storedcars" component={Storedcars} />
@@ -72,6 +80,7 @@ export default function MyDrawer() {
       <Drawer.Screen name="Aboutus" component={Aboutus} />
       <Drawer.Screen name="Rateus" component={Rateus} />
     </Drawer.Navigator>
+    </NativeBaseProvider>
   );
 }
 
