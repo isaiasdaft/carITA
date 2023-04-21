@@ -9,6 +9,12 @@ const Login = ({ navigation }) => {
     // Una vez que el usuario ha iniciado sesión, navegamos a la pantalla del cajón
     navigation.navigate("Regresar");
   }
+  const handleRegis = () => {
+    // Aquí iría el código para validar las credenciales del usuario y guardar la información de sesión
+
+    // Una vez que el usuario ha iniciado sesión, navegamos a la pantalla del cajón
+    navigation.navigate("Regiser");
+  }
 
   return <Center w="100%">
       <Box safeArea p="2" py="8" w="90%" maxW="290">
@@ -48,13 +54,9 @@ const Login = ({ navigation }) => {
           }}>
               I'm a new user.{" "}
             </Text>
-            <Link _text={{
-            color: "indigo.500",
-            fontWeight: "medium",
-            fontSize: "sm"
-          }} href="#">
-              Sign Up
-            </Link>
+            <Button mt="2" colorScheme="indigo" onPress={handleRegis}>
+            Register
+          </Button>
           </HStack>
         </VStack>
       </Box>
