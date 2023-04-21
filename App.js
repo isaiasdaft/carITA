@@ -15,7 +15,11 @@ export default function App() {
     <NativeBaseProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Login">
-          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Login" component={Login} options={{
+    headerStyle: {
+      backgroundColor: '#B80D0D', // Cambie el color a su preferencia
+    },
+  }}/>
           <Stack.Screen name="Regresar" component={MyDrawer} />
           <Stack.Screen name="Regiser" component={Regis} />
         </Stack.Navigator>
