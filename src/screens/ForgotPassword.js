@@ -1,14 +1,14 @@
 import * as React from "react";
-import { Box, Heading, VStack, FormControl, Input, Button, Center, NativeBaseProvider, Image } from "native-base";
+import { Box, Heading, VStack, FormControl, Input, Button, Center, NativeBaseProvider, Image} from "native-base";
 
 
-const Regis = ({ navigation }) => {
+const Forgot = ({ navigation }) => {
 
         const handleRegis = () => {
           // Aquí iría el código para validar las credenciales del usuario y guardar la información de sesión
       
           // Una vez que el usuario ha iniciado sesión, navegamos a la pantalla del cajón
-          navigation.navigate("Regiser");
+          navigation.navigate("forget");
         }
 
         const handleLo = () => {
@@ -23,40 +23,28 @@ const Regis = ({ navigation }) => {
         <Heading size="lg" color="coolGray.800" _dark={{
         color: "warmGray.50"
       }} fontWeight="semibold">
-          Create Account
-        </Heading>
-        <Image
-          style={{ width: 120, height: 120, marginLeft:160 }}
-          source={require('../img/logo-carita.png')}
-          />
+            have you forgotten your password?  
+      </Heading>
         <Heading mt="1" color="coolGray.600" _dark={{
         color: "warmGray.200"
       }} fontWeight="medium" size="xs">
-          Sign up to continue!
+          Ingresa tu correo para enviar tu contraseña
         </Heading>
+        <Image
+          style={{ width: 120, height: 120, marginLeft:80 }}
+          source={require('../img/lock.png')}
+          />
         <VStack space={3} mt="5">
-        <FormControl>
-            <FormControl.Label>Usuario</FormControl.Label>
-            <Input />
-          </FormControl>
           <FormControl>
             <FormControl.Label>Email</FormControl.Label>
             <Input />
           </FormControl>
-          <FormControl>
-            <FormControl.Label>Password</FormControl.Label>
-            <Input type="password" />
-          </FormControl>
-          <FormControl>
-            <FormControl.Label>Confirm Password</FormControl.Label>
-            <Input type="password" />
-          </FormControl>
           <Button mt="2" colorScheme="indigo" onPress={handleLo} bg="#015D52">
-            Sign up
+            Enviar
           </Button>
         </VStack>
       </Box>
     </Center>;
 };
 
-export default Regis;
+export default Forgot;

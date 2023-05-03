@@ -1,13 +1,16 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer';
 import Inicio from './Inicio';
 import Historial from './Historial';
 import About from './About_us';
 import Rate from './Rate_us';
 import Contac from './Contact';
 import { NativeBaseProvider } from 'native-base';
+import AppStack from '../navigation/AppStack';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 
 
 
@@ -73,8 +76,54 @@ const Drawer = createDrawerNavigator();
 
 export default function MyDrawer() {
   return (
+    
     <NativeBaseProvider>
-    <Drawer.Navigator useLegacyImplementation>
+    
+    <Drawer.Navigator  useLegacyImplementation
+      drawerContent={
+        (props) => {
+          return (
+            <SafeAreaView>
+              <View
+                style={{
+                  height:200,
+                  width: '100%',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderBottomColor: "#f4f4f4",
+                  borderBottomWidth: 1,
+                  backgroundColor: '#F3F9FF'
+                }}
+              >
+               <Image
+                  style={{ width: 150, height: 150 }}
+                  source={require('../img/logo-carita.png')}
+                  />
+
+              </View>
+              <DrawerItemList {...props} />
+            </SafeAreaView>
+          )
+        }
+      }
+
+      screenOptions={{
+      drawerStyle:{
+        backgroundColor: "#6B0000",
+        width: 250
+      },
+      headerStyle:{
+        backgroundColor: "#6B0000",
+      },
+      headerTintColor: "#F3F9FF",
+      headerTintleStyle:{
+        fontWeight: "bold"
+      },
+      drawerActiveTintColor: "white",
+      drawerLabelStyle:{
+        color:"#CBDBC3"
+      }
+    }}>
       
       <Drawer.Screen name="Home" component={Feed} />
       

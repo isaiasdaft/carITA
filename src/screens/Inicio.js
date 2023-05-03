@@ -45,11 +45,7 @@ const Inicio = () => {
         recentText: "",
         avatarUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr01zI37DYuR8bMV5exWQBSw28C1v_71CAh8d7GP1mplcmTgQA6Q66Oo--QedAN1B4E1k&usqp=CAU"
     }, {
-        id: "28694a0f-3da1-471f-bd96-142456e29d72",
-        fullName: "",
-        timeStamp: "",
-        recentText: "",
-        avatarUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBwgu1A5zgPSvfE83nurkuzNEoXs9DMNr8Ww&usqp=CAU"
+        
     }];
     return <Box>
         <Heading fontSize="xl" p="4" pb="3">

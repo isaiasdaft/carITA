@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Box, Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center } from "native-base";
+import { Box, Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, Image } from "native-base";
+import Logo from '../img/logo-carita.png'
 
 const Login = ({ navigation }) => {
 
@@ -15,6 +16,13 @@ const Login = ({ navigation }) => {
     // Una vez que el usuario ha iniciado sesión, navegamos a la pantalla del cajón
     navigation.navigate("Regiser");
   }
+  
+  const handleForgot = () => {
+    // Aquí iría el código para validar las credenciales del usuario y guardar la información de sesión
+
+    // Una vez que el usuario ha iniciado sesión, navegamos a la pantalla del cajón
+    navigation.navigate("forget");
+  }
 
   return <Center w="100%">
       <Box safeArea p="2" py="8" w="90%" maxW="290">
@@ -28,6 +36,10 @@ const Login = ({ navigation }) => {
       }} color="coolGray.600" fontWeight="medium" size="xs">
           Sign in to continue!
         </Heading>
+        <Image
+          style={{ width: 120, height: 120, marginLeft:160 }}
+          source={require('../img/logo-carita.png')}
+          />
 
         <VStack space={3} mt="5">
           <FormControl>
@@ -41,11 +53,11 @@ const Login = ({ navigation }) => {
             fontSize: "xs",
             fontWeight: "500",
             color: "indigo.500"
-          }} alignSelf="flex-end" mt="1">
+          }} alignSelf="flex-end" mt="1" onPress={handleForgot}>
               Forget Password?
             </Link>
           </FormControl>
-          <Button mt="2" colorScheme="indigo" onPress={handleLogin} bg="#9E2525">
+          <Button mt="2" colorScheme="indigo" onPress={handleLogin} bg="#015D52">
             Sign in
           </Button>
           <HStack mt="6" justifyContent="center">
@@ -54,7 +66,7 @@ const Login = ({ navigation }) => {
           }}>
               I'm a new user.{" "}
             </Text>
-            <Button mt="2" colorScheme="indigo" onPress={handleRegis}>
+            <Button mt="2" colorScheme="indigo" onPress={handleRegis} bg="#015D52">
             Register
           </Button>
           </HStack>
