@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Heading, VStack, FormControl, Input, Button, Center, NativeBaseProvider, Image } from "native-base";
+import { Box, Heading, VStack, FormControl, Input, Button, Center, NativeBaseProvider, Image, Link, Text } from "native-base";
 
 
 const Regis = ({ navigation }) => {
@@ -8,14 +8,22 @@ const Regis = ({ navigation }) => {
           // Aquí iría el código para validar las credenciales del usuario y guardar la información de sesión
       
           // Una vez que el usuario ha iniciado sesión, navegamos a la pantalla del cajón
-          navigation.navigate("Regiser");
+          navigation.navigate("Register");
         }
 
         const handleLo = () => {
+          // Aquí iría el código para validar las credenciales del usuario y guardar la información de sesión
+      
+          // Una vez que el usuario ha iniciado sesión, navegamos a la pantalla del cajón
+          navigation.navigate("Login");
+        }
+
+
+        const handleConfr = () => {
             // Aquí iría el código para validar las credenciales del usuario y guardar la información de sesión
         
             // Una vez que el usuario ha iniciado sesión, navegamos a la pantalla del cajón
-            navigation.navigate("Login");
+            navigation.navigate("ConfirmAccount");
           }
       
   return <Center w="100%">
@@ -26,7 +34,7 @@ const Regis = ({ navigation }) => {
           Create Account
         </Heading>
         <Image
-          style={{ width: 120, height: 120, marginLeft:160 }}
+          style={{ width: 140, height: 120, marginLeft:70 }}
           source={require('../img/logo-carita.png')}
           />
         <Heading mt="1" color="coolGray.600" _dark={{
@@ -51,9 +59,18 @@ const Regis = ({ navigation }) => {
             <FormControl.Label>Confirm Password</FormControl.Label>
             <Input type="password" />
           </FormControl>
-          <Button mt="2" colorScheme="indigo" onPress={handleLo} bg="#015D52">
+          <Button mt="2" colorScheme="indigo" onPress={handleConfr} bg="#015D52">
             Sign up
           </Button>
+          <Text>Ya tienes cuenta?.  
+          <Link _text={{
+            fontSize: "xs",
+            fontWeight: "500",
+            color: "indigo.500"
+          }} alignSelf="flex-end" mt="1" onPress={handleLo}>
+                Iniciar sesión
+            </Link>
+            </Text>
         </VStack>
       </Box>
     </Center>;

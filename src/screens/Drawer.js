@@ -12,13 +12,11 @@ import AppStack from '../navigation/AppStack';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
-
-
 function Feed() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
      
-                <Inicio />
+       <Inicio />
           
     </View> 
   );
@@ -70,15 +68,14 @@ function Contacts() {
     );
   }
   
- 
+
 
 const Drawer = createDrawerNavigator();
 
-export default function MyDrawer() {
+function MyDrawer() {
   return (
     
     <NativeBaseProvider>
-    
     <Drawer.Navigator  useLegacyImplementation
       drawerContent={
         (props) => {
@@ -106,7 +103,6 @@ export default function MyDrawer() {
           )
         }
       }
-
       screenOptions={{
       drawerStyle:{
         backgroundColor: "#6B0000",
@@ -119,6 +115,7 @@ export default function MyDrawer() {
       headerTintleStyle:{
         fontWeight: "bold"
       },
+      drawerActiveBackgroundColor:'#015D52',
       drawerActiveTintColor: "white",
       drawerLabelStyle:{
         color:"#CBDBC3"
@@ -137,4 +134,6 @@ export default function MyDrawer() {
     </NativeBaseProvider>
   );
 }
+
+export default MyDrawer;
 

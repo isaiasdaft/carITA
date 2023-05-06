@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Box, Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, Image } from "native-base";
-import Logo from '../img/logo-carita.png'
+
 
 const Login = ({ navigation }) => {
 
@@ -8,13 +8,13 @@ const Login = ({ navigation }) => {
     // Aquí iría el código para validar las credenciales del usuario y guardar la información de sesión
 
     // Una vez que el usuario ha iniciado sesión, navegamos a la pantalla del cajón
-    navigation.navigate("Regresar");
+    navigation.navigate("Home");
   }
   const handleRegis = () => {
     // Aquí iría el código para validar las credenciales del usuario y guardar la información de sesión
 
     // Una vez que el usuario ha iniciado sesión, navegamos a la pantalla del cajón
-    navigation.navigate("Regiser");
+    navigation.navigate("Register");
   }
   
   const handleForgot = () => {
