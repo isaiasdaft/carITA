@@ -17,11 +17,8 @@ const About = () => {
         borderColor: "coolGray.200"
       }}>
           <Skeleton h="40" isLoaded={isLoaded}>
-          <Center>
-            <Image h="40" style={{ width: 200, height: 200 }}  source={(require("../img/logo-carita.png")
-          )}
-           
-          /></Center>
+          <Center><Image h="40" style={{ width: 200, height: 200 }}  source={(require("../img/logo-carita.png")
+            )} /></Center>
           </Skeleton>
           <Skeleton.Text lines={4} px="4" isLoaded={isLoaded}>
             <Text px="4" fontSize={"md"} lineHeight={"20px"}>
@@ -33,16 +30,18 @@ const About = () => {
             <Heading fontSize="xl" p="4" pb="3">
              Equipo 7
             </Heading>
-             </Center>
-         
-            <Center><AvatarGroup
+            <AvatarGroup
                 avatars={["Jesús Andrade Sustaita", "Sofia Belem Cano Macias", "Emiliano Hernández Rodríguez", "Abraham Isaías Ponce Moreno" /* or IAvatar objects */]}
                 initialCharacters={2}
                 max={3}
                 size={60}
                 displayAllOnHover
                 shadow={2}
-            /></Center>
+            />
+            <Text>
+                Copyright © carITA2023
+            </Text>
+            </Center>
 
         </VStack>
       </Box>
