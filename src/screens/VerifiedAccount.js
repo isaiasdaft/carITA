@@ -17,6 +17,7 @@ const verified = ({ navigation }) => {
         
             // Una vez que el usuario ha iniciado sesión, navegamos a la pantalla del cajón
             navigation.navigate("Home");
+            
           }
 
       

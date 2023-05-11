@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Login from './src/screens/Login';
 import Regis from './src/screens/Register';
+import InfoQuote from './src/screens/InformationQuote';
 import Confirm from './src/screens/ConfirmAccount';
 import Forgot from './src/screens/ForgotPassword';
 import { NativeBaseProvider } from 'native-base';
@@ -49,13 +50,17 @@ export default function App() {
                 backgroundColor: '#6B0000', 
               },
             }}/>
+            <Stack.Screen name="InformationCustomer" component={InfoQuote} options={{
+                headerStyle: {
+                backgroundColor: '#6B0000', 
+              },
+            }}/>
           <Stack.Screen name="verified" component={VerifiedAcc} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
               },
             }}/>
         </Stack.Navigator>
-      
       </NavigationContainer>
       </NativeBaseProvider>
       );

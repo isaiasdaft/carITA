@@ -5,6 +5,7 @@ import { DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer'
 import Profile from './Profile';
 import Inicio from './Inicio';
 import Storedc from './Storedc';
+import Appoinment from './Appoinment';
 import Historial from './Historial';
 import About from './About_us';
 import Rate from './Rate_us';
@@ -27,7 +28,7 @@ function Feed() {
 function Article() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Appoinment</Text>
+      <Appoinment />
     </View>
   );
 }
