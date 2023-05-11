@@ -3,6 +3,7 @@ import { View, Text, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer';
 import Inicio from './Inicio';
+import Storedc from './Storedc';
 import Historial from './Historial';
 import About from './About_us';
 import Rate from './Rate_us';
@@ -41,7 +42,7 @@ function Contacts() {
   function Storedcars() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Storedcars</Text>
+        <Storedc/>
       </View>
     );
   }
