@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { Skeleton, Text, Button, Box, Image, VStack, Center, NativeBaseProvider } from "native-base";
+import { Skeleton, Text, Button, Box, Image, VStack, Center, NativeBaseProvider, Avatar, Heading } from "native-base";
+import AvatarGroup from 'react-avatar-group';
 
 const About = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [text, setText] = useState("");
   setTimeout(() => {
     setIsLoaded(true);
-    setText("Es una aplicación desarrollada por alumnos del Instituto Tecnologico de Aguascalientes en la cual puedes organizar y registrar las citas que se presentan en un taller mecánico                                            Tambien puedes agendar los datos esenciales del cliente, sobre su auto y poder guardar el historial generado");
-  }, 5000);
+    setText("Es una aplicación desarrollada por alumnos del Instituto Tecnológico de Aguascalientes en la cual puedes organizar y registrar las citas que se presentan en un taller mecánico                                            Tambien puedes agendar los datos esenciales del cliente, sobre su auto y poder guardar el historial generado");
+  }, );
   return <Center w="100%">
       <Box w="90%" maxWidth="400">
         <VStack maxWidth="400" borderWidth="1" space={8} overflow="hidden" rounded="md" _dark={{
@@ -16,15 +17,32 @@ const About = () => {
         borderColor: "coolGray.200"
       }}>
           <Skeleton h="40" isLoaded={isLoaded}>
-            <Image h="40" source={{
-            uri: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-          }} />
+          <Center><Image h="40" style={{ width: 200, height: 200 }}  source={(require("../img/logo-carita.png")
+            )} /></Center>
           </Skeleton>
           <Skeleton.Text lines={4} px="4" isLoaded={isLoaded}>
             <Text px="4" fontSize={"md"} lineHeight={"20px"}>
               {text}
             </Text>
           </Skeleton.Text>
+                
+            <Center>
+            <Heading fontSize="xl" p="4" pb="3">
+             Equipo 7
+            </Heading>
+            <AvatarGroup
+                avatars={["Jesús Andrade Sustaita", "Sofia Belem Cano Macias", "Emiliano Hernández Rodríguez", "Abraham Isaías Ponce Moreno" /* or IAvatar objects */]}
+                initialCharacters={2}
+                max={3}
+                size={60}
+                displayAllOnHover
+                shadow={2}
+            />
+            <Text>
+                Copyright © carITA2023
+            </Text>
+            </Center>
+
         </VStack>
       </Box>
     </Center>;

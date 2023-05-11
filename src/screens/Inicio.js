@@ -2,6 +2,7 @@ import React from "react";
 import { Box, FlatList, Heading, Avatar, HStack, VStack, Text, Spacer, Center, NativeBaseProvider } from "native-base";
 
 
+
 const Inicio = () => {
     const data = [{
         id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
@@ -38,15 +39,7 @@ const Inicio = () => {
 
     </Text>,
         avatarUrl: "https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg"
-    }, {
-        id: "68694a0f-3da1-431f-bd56-142371e29d72",
-        fullName: "",
-        timeStamp: "",
-        recentText: "",
-        avatarUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr01zI37DYuR8bMV5exWQBSw28C1v_71CAh8d7GP1mplcmTgQA6Q66Oo--QedAN1B4E1k&usqp=CAU"
-    }, {
-        
-    }];
+    } ];
     return <Box>
         <Heading fontSize="xl" p="4" pb="3">
             Today

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { View, Text, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer';
+import Profile from './Profile';
 import Inicio from './Inicio';
 import Storedc from './Storedc';
 import Historial from './Historial';
@@ -122,15 +123,16 @@ function MyDrawer() {
         color:"#CBDBC3"
       }
     }}>
-      
+
       <Drawer.Screen name="Home" component={Feed} />
-      
+
       <Drawer.Screen name="Appoinment" component={Article} />
       <Drawer.Screen name="Contacts" component={Contacts} />
-      <Drawer.Screen name="Storedcars" component={Storedcars} />
+      <Drawer.Screen name="Stored Cars" component={Storedcars} />
       <Drawer.Screen name="History" component={History} />
-      <Drawer.Screen name="Aboutus" component={Aboutus} />
-      <Drawer.Screen name="Rateus" component={Rateus} />
+      <Drawer.Screen name="Profile" component={Profile} />
+      <Drawer.Screen name="About Us" component={Aboutus} />
+      <Drawer.Screen name="Rate Us" component={Rateus} />
     </Drawer.Navigator>
     </NativeBaseProvider>
   );
