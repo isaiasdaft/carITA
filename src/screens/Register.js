@@ -1,6 +1,8 @@
 import * as React from "react";
 import { Box, Heading, VStack, FormControl, Input, Button, Center, NativeBaseProvider, Image, Link, Text } from "native-base";
-
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "../../firebase-config"; 
 
 const Regis = ({ navigation }) => {
 
@@ -24,6 +26,43 @@ const Regis = ({ navigation }) => {
         
             // Una vez que el usuario ha iniciado sesión, navegamos a la pantalla del cajón
             navigation.navigate("ConfirmAccount");
+          }
+
+          const[email, setEmail]= React.useState('')
+          const[password, setPassword]= React.useState('')
+        
+          const app= initializeApp(firebaseConfig);
+        
+          const auth = getAuth(app);
+        
+          const handleCreateAccount = ()=>{
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              console.log('Cuenta creada')
+              const user = userCredential.user;
+              console.log(user)
+              
+            })
+            .catch((error) => {
+              console.log(error)
+              Alert.alert(error.message)
+              // ..
+            });
+          }
+        
+          const handleSignIn = ()=>{
+            signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              console.log('Sesion Iniciada')
+              const user = userCredential.user;
+              console.log(user)
+              handleLogin();
+            })
+            .catch((error) => {
+              console.log(error)
+              Alert.alert(error.message)
+              // ..
+            });
           }
       
   return <Center w="100%">
@@ -49,7 +88,7 @@ const Regis = ({ navigation }) => {
           </FormControl>
           <FormControl>
             <FormControl.Label>Email</FormControl.Label>
-            <Input />
+            <Input onChangeText={(text) => setEmail(text)}/>
           </FormControl>
           <FormControl>
             <FormControl.Label>Password</FormControl.Label>
@@ -57,10 +96,10 @@ const Regis = ({ navigation }) => {
           </FormControl>
           <FormControl>
             <FormControl.Label>Confirm Password</FormControl.Label>
-            <Input type="password" />
+            <Input onChangeText={(text) => setPassword(text)} type="password" />
           </FormControl>
-          <Button mt="2" colorScheme="indigo" onPress={handleConfr} bg="#015D52">
-            Sign up
+          <Button mt="2" colorScheme="indigo" onPress={handleCreateAccount} bg="#015D52">
+            Register
           </Button>
           <Text>Ya tienes cuenta?.  
           <Link _text={{

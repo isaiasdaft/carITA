@@ -1,6 +1,8 @@
 import * as React from "react";
-import { Box, Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, Image } from "native-base";
-
+import { Box, Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, Image, Alert } from "native-base";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "../../firebase-config"; 
 
 const Login = ({ navigation }) => {
 
@@ -24,6 +26,46 @@ const Login = ({ navigation }) => {
     navigation.navigate("forget");
   }
 
+  const[email, setEmail]= React.useState('')
+  const[password, setPassword]= React.useState('')
+
+  const app= initializeApp(firebaseConfig);
+
+  const auth = getAuth(app);
+
+  const handleCreateAccount = ()=>{
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      console.log('Cuenta creada')
+      const user = userCredential.user;
+      console.log(user)
+      
+    })
+    .catch((error) => {
+      console.log(error)
+      Alert.alert(error.message)
+      // ..
+    });
+  }
+
+  const handleSignIn = ()=>{
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      console.log('Sesion Iniciada')
+      const user = userCredential.user;
+      console.log(user)
+      handleLogin();
+    })
+    .catch((error) => {
+      console.log(error)
+      Alert.alert(error.message)
+      // ..
+    });
+  }
+
+
+
+
   return <Center w="100%">
       <Box safeArea p="2" py="8" w="90%" maxW="290">
         <Heading size="lg" fontWeight="600" color="coolGray.800" _dark={{
@@ -44,11 +86,11 @@ const Login = ({ navigation }) => {
         <VStack space={3} mt="5">
           <FormControl>
             <FormControl.Label>Email ID</FormControl.Label>
-            <Input />
+            <Input onChangeText={(text) => setEmail(text)}/>
           </FormControl>
           <FormControl>
             <FormControl.Label>Password</FormControl.Label>
-            <Input type="password" />
+            <Input onChangeText={(text) => setPassword(text)} type="password" />
             <Link _text={{
             fontSize: "xs",
             fontWeight: "500",
@@ -57,7 +99,7 @@ const Login = ({ navigation }) => {
               Forget Password?
             </Link>
           </FormControl>
-          <Button mt="2" colorScheme="indigo" onPress={handleLogin} bg="#015D52">
+          <Button mt="2" colorScheme="indigo" onPress={handleSignIn} bg="#015D52">
             Sign in
           </Button>
           <HStack mt="6" justifyContent="center">
