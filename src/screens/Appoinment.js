@@ -1,39 +1,27 @@
 import * as React from "react";
 import { Box, Heading, VStack, FormControl, Input, Button, Center, NativeBaseProvider, Image, Link, Text, ScrollView } from "native-base";
+import { useNavigation } from "@react-navigation/native";
 
 
-const Regis = ({ navigation }) => {
+const Regis = () => {
 
-        const handleRegis = () => {
-          // Aquí iría el código para validar las credenciales del usuario y guardar la información de sesión
-      
-          // Una vez que el usuario ha iniciado sesión, navegamos a la pantalla del cajón
-          navigation.navigate("Register");
-        }
+    const navigation = useNavigation();
+    
+    const goToHome = () => {
+      navigation.navigate("Home");
+    }
 
-        const handleLo = () => {
-          // Aquí iría el código para validar las credenciales del usuario y guardar la información de sesión
-      
-          // Una vez que el usuario ha iniciado sesión, navegamos a la pantalla del cajón
-          navigation.navigate("Login");
-        }
-
-
-        const handleConfr = () => {
-            // Aquí iría el código para validar las credenciales del usuario y guardar la información de sesión
         
-            // Una vez que el usuario ha iniciado sesión, navegamos a la pantalla del cajón
-            navigation.navigate("ConfirmAccount");
-          }
       
-  return <ScrollView> 
-    <Center w="100%">
-      <Box safeArea p="2" w="100%" maxW="250" py="8">
-        <Heading size="md" color="coolGray.800" _dark={{
+  return <Center >
+        <safeArea p="2" w="100%" maxW="250" py="8">
+          <ScrollView> 
+          <Heading size="md" color="coolGray.800" _dark={{
         color: "warmGray.50"
       }} fontWeight="semibold">
-          Create A nueva cita
-        </Heading>
+          Crear nueva cita
+        </Heading> 
+        {'\n'}
         <Heading mt="1" color="coolGray.600" _dark={{
         color: "warmGray.200"
       }} fontWeight="medium" size="xs">
@@ -67,14 +55,15 @@ const Regis = ({ navigation }) => {
           <Button small primary style={{ marginTop: 10, marginBottom: 20  }}>
             <Text>Hora</Text>
          </Button>
-          <Button mt="2" colorScheme="indigo" onPress={handleConfr} bg="#015D52">
+          <Button mt="2" colorScheme="indigo" onPress={goToHome} bg="#015D52">
             guardar
           </Button>
 
         </VStack>
-      </Box>
+        </ScrollView>;
+        </safeArea>
+      
     </Center>
-    </ScrollView>;
 };
 
 export default Regis;

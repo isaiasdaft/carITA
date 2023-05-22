@@ -5,6 +5,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import Login from './src/screens/Login';
 import Regis from './src/screens/Register';
 import InfoQuote from './src/screens/InformationQuote';
+import CreateContact from './src/screens/CreateContact';
+import DetailsContact from './src/screens/DetailsContact';
+import Contact from './src/screens/Contact';
+
 import Confirm from './src/screens/ConfirmAccount';
 import Forgot from './src/screens/ForgotPassword';
 import { NativeBaseProvider } from 'native-base';
@@ -26,6 +30,12 @@ export default function App() {
                 backgroundColor: '#6B0000', 
               },
             }}/>
+             <Stack.Screen name="Register" component={Regis} options={{
+                headerStyle: {
+                backgroundColor: '#6B0000', 
+              },
+            }}/>
+            
           <Stack.Screen name="Home" component={MyDrawer} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
@@ -33,14 +43,15 @@ export default function App() {
               },
                  headerShown: false,
             }}/>
+         
 
-          <Stack.Screen name="Register" component={Regis} options={{
+           <Stack.Screen name="ConfirmAccount" component={Confirm} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
               },
             }}/>
-
-        <Stack.Screen name="ConfirmAccount" component={Confirm} options={{
+            
+            <Stack.Screen name="verified" component={VerifiedAcc} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
               },
@@ -54,12 +65,24 @@ export default function App() {
                 headerStyle: {
                 backgroundColor: '#6B0000', 
               },
-            }}/>
-          <Stack.Screen name="verified" component={VerifiedAcc} options={{
+            }}/>  
+            <Stack.Screen name="Contact" component={Contact} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
               },
+            }}/>    
+               <Stack.Screen name="CreateContact" component={CreateContact} options={{
+                headerStyle: {
+                backgroundColor: '#6B0000', 
+              }, title: 'create contact',
+            }}/>  
+            <Stack.Screen name="DetailsContact" component={DetailsContact} options={{
+                headerStyle: {
+                backgroundColor: '#6B0000', 
+                
+              },title: 'Details contact',
             }}/>
+
         </Stack.Navigator>
       </NavigationContainer>
       </NativeBaseProvider>

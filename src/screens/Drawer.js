@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Text, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer';
 import Profile from './Profile';
 import Inicio from './Inicio';
@@ -10,7 +11,7 @@ import Historial from './Historial';
 import About from './About_us';
 import Rate from './Rate_us';
 import Contac from './Contact';
-import { NativeBaseProvider } from 'native-base';
+import { NativeBaseProvider, Stack } from 'native-base';
 import AppStack from '../navigation/AppStack';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -27,7 +28,7 @@ function Feed() {
 
 function Article() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ }}>
       <Appoinment />
     </View>
   );
@@ -35,8 +36,8 @@ function Article() {
 
 function Contacts() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Contac />
+      <View style={{ }}>
+          <Contac />
       </View>
     );
   }

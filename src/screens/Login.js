@@ -1,8 +1,10 @@
 import * as React from "react";
 import { Box, Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, Image, Alert } from "native-base";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
-import { initializeApp } from "firebase/app";
+
 import { firebaseConfig } from "../../firebase-config"; 
+import  firebase  from "../../firebase-config"; 
+
 
 const Login = ({ navigation }) => {
 
@@ -29,9 +31,8 @@ const Login = ({ navigation }) => {
   const[email, setEmail]= React.useState('')
   const[password, setPassword]= React.useState('')
 
-  const app= initializeApp(firebaseConfig);
-
-  const auth = getAuth(app);
+  //const app = initializeApp(firebaseConfig);
+  //const auth = getAuth(app);
 
   const handleCreateAccount = ()=>{
     createUserWithEmailAndPassword(auth, email, password)
@@ -44,11 +45,11 @@ const Login = ({ navigation }) => {
     .catch((error) => {
       console.log(error)
       Alert.alert(error.message)
-      // ..
+       
     });
   }
 
-  const handleSignIn = ()=>{
+ const handleSignIn = ()=>{
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       console.log('Sesion Iniciada')
@@ -62,8 +63,6 @@ const Login = ({ navigation }) => {
       // ..
     });
   }
-
-
 
 
   return <Center w="100%">
@@ -99,7 +98,7 @@ const Login = ({ navigation }) => {
               Forget Password?
             </Link>
           </FormControl>
-          <Button mt="2" colorScheme="indigo" onPress={handleSignIn} bg="#015D52">
+          <Button mt="2" colorScheme="indigo" onPress={handleLogin} bg="#015D52">
             Sign in
           </Button>
           <HStack mt="6" justifyContent="center">
