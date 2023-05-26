@@ -103,6 +103,7 @@ const goToLanguage = () => {
   
   return (
     <NativeBaseProvider>
+      
       <HStack bg="#6B0000" px="1" py="3" justifyContent="space-between" alignItems="center" w="100%">
         <HStack>
         </HStack>
@@ -116,7 +117,7 @@ const goToLanguage = () => {
                         as={<Ionicons name="ellipsis-vertical"/>} 
                         size="md"
                         ml="2" 
-                        color="dark" 
+                        color="white" 
                         mr='3'/>
                     </Pressable>
               }}>
@@ -172,7 +173,10 @@ const goToLanguage = () => {
       }
     }}>
 
+      
+
       <Drawer.Screen name="Home" component={Feed} />
+      
 
       <Drawer.Screen name="Appoinment" component={Article} />
       <Drawer.Screen name="Contacts" component={Contacts} />
@@ -183,6 +187,7 @@ const goToLanguage = () => {
       <Drawer.Screen name="Rate Us" component={Rateus} />
 
     </Drawer.Navigator>
+    
     </NativeBaseProvider>
 
 

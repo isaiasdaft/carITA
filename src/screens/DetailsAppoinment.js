@@ -1,9 +1,9 @@
 import * as React from "react";
-import { StyleSheet, TextInput, Alert, View } from "react-native";
+import { StyleSheet, TextInput, Alert, View, ActivityIndicator } from "react-native";
 import { useEffect, useState } from "react";
 import firebase from "../../firebase-config";
 import { Box, Heading, VStack, FormControl, Input, Button, Center, NativeBaseProvider, Image, Link, Text, ScrollView } from "native-base";
-import { ActivityIndicator } from "react-native-web";
+
 
 const DetailsAppoinment = (props) => {
 

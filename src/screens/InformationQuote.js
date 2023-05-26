@@ -64,7 +64,7 @@ return (
               <ListItem.Title>{appoinment.namerUser}</ListItem.Title>
               <ListItem.Subtitle>{appoinment.marca}</ListItem.Subtitle>
               <ListItem.Subtitle>{appoinment.model}</ListItem.Subtitle>
-              <ListItem.Swipeable>{appoinment.date}</ListItem.Swipeable>
+              <ListItem.Swipeable><Text>{appoinment.date}</Text></ListItem.Swipeable>
               <Divider orientation="horizontal" />
             </ListItem.Content>
             

@@ -45,20 +45,24 @@ const Regis = (props) => {
 
 
   return (
-    <View>
       <SafeAreaView>
         <ScrollView style={styles.container}>
+          <View>
+            <View>
           <Heading size="md" color="coolGray.800" _dark={{
             color: "warmGray.50"
           }} fontWeight="semibold">
             Crear nueva cita
           </Heading>
-          {'\n'}
-          <Heading mt="1" color="coolGray.600" _dark={{
+          </View>
+         
+         <View>
+           <Heading mt="1" color="coolGray.600" _dark={{
             color: "warmGray.200"
           }} fontWeight="medium" size="xs">
             Ingresa los datos de la cita
           </Heading>
+          </View>
           <VStack space={3} mt="5">
             <FormControl>
               <FormControl.Label>Nombre del cliente</FormControl.Label>
@@ -103,9 +107,10 @@ const Regis = (props) => {
             </Button>
 
           </VStack>
+          </View>
         </ScrollView>
       </SafeAreaView>
-    </View>
+    
   );
 };
 
