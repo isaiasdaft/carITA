@@ -8,8 +8,12 @@ import InfoQuote from './src/screens/InformationQuote';
 import CreateContact from './src/screens/CreateContact';
 import DetailsContact from './src/screens/DetailsContact';
 import Contact from './src/screens/Contact';
+import Appoinment from './src/screens/Appoinment';
+import DetailsAppoinment from './src/screens/DetailsAppoinment';
 
 import Confirm from './src/screens/ConfirmAccount';
+import Settings from './src/screens/Settings';
+import Language from './src/screens/Language';
 import Forgot from './src/screens/ForgotPassword';
 import { NativeBaseProvider } from 'native-base';
 import MyDrawer from './src/screens/Drawer';
@@ -43,15 +47,13 @@ export default function App() {
               },
                  headerShown: false,
             }}/>
-         
-
-           <Stack.Screen name="ConfirmAccount" component={Confirm} options={{
+            
+            <Stack.Screen name="verified" component={VerifiedAcc} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
               },
             }}/>
-            
-            <Stack.Screen name="verified" component={VerifiedAcc} options={{
+               <Stack.Screen name="ConfirmAccount" component={Confirm} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
               },
@@ -61,11 +63,33 @@ export default function App() {
                 backgroundColor: '#6B0000', 
               },
             }}/>
+            <Stack.Screen name="Settings" component={Settings} options={{
+                headerStyle: {
+                backgroundColor: '#6B0000', 
+              },
+            }}/>
+            <Stack.Screen name="Language" component={Language} options={{
+                headerStyle: {
+                backgroundColor: '#6B0000', 
+              },
+            }}/>
+
+            <Stack.Screen name="Appoinment" component={Appoinment} options={{
+                headerStyle: {
+                backgroundColor: '#6B0000', 
+              },
+            }}/> 
             <Stack.Screen name="InformationCustomer" component={InfoQuote} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
               },
-            }}/>  
+            }}/> 
+             <Stack.Screen name="DetailsAppoinment" component={DetailsAppoinment} options={{
+                headerStyle: {
+                backgroundColor: '#6B0000', 
+              },
+            }}/> 
+
             <Stack.Screen name="Contact" component={Contact} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 

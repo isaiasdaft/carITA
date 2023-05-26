@@ -1,12 +1,11 @@
 import * as React from "react";
 import { Box, Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, Image, Alert } from "native-base";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
-
-import { firebaseConfig } from "../../firebase-config"; 
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import  firebase  from "../../firebase-config"; 
-
+import { auth } from "../../firebase-config";
 
 const Login = ({ navigation }) => {
+
 
   const handleLogin = () => {
     // Aquí iría el código para validar las credenciales del usuario y guardar la información de sesión
@@ -32,40 +31,40 @@ const Login = ({ navigation }) => {
   const[password, setPassword]= React.useState('')
 
   //const app = initializeApp(firebaseConfig);
-  //const auth = getAuth(app);
+  // const auth = getAuth(firebase.auth);
 
-  const handleCreateAccount = ()=>{
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      console.log('Cuenta creada')
-      const user = userCredential.user;
-      console.log(user)
+ // const handleCreateAccount = ()=>{
+   // createUserWithEmailAndPassword(auth, email, password)
+   // .then((userCredential) => {
+    //  console.log('Cuenta creada')
+     // const user = userCredential.user;
+     // console.log(user)
       
-    })
-    .catch((error) => {
-      console.log(error)
-      Alert.alert(error.message)
+    //})
+    //.catch((error) => {
+     // console.log(error)
+      //Alert.alert(error.message)
        
-    });
-  }
+    //});
+  //}
 
- const handleSignIn = ()=>{
-    signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      console.log('Sesion Iniciada')
-      const user = userCredential.user;
-      console.log(user)
-      handleLogin();
-    })
-    .catch((error) => {
-      console.log(error)
-      Alert.alert(error.message)
-      // ..
-    });
-  }
+  //const handleSignIn = ()=>{
+   // signInWithEmailAndPassword(auth, email, password)
+    //.then((userCredential) => {
+     // console.log('Sesion Iniciada')
+      //const user = userCredential.user;
+      //console.log(user)
+      //handleLogin();
+    //})
+    //.catch((error) => {
+      //console.log(error)
+     // Alert.alert(error.message)
+      
+   // });
+  //};
 
-
-  return <Center w="100%">
+  return (
+  <Center w="100%">
       <Box safeArea p="2" py="8" w="90%" maxW="290">
         <Heading size="lg" fontWeight="600" color="coolGray.800" _dark={{
         color: "warmGray.50"
@@ -113,7 +112,10 @@ const Login = ({ navigation }) => {
           </HStack>
         </VStack>
       </Box>
-    </Center>;
-};
+    </Center>
+  );
+
+
+}
 
 export default Login;

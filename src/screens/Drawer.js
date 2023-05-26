@@ -1,7 +1,11 @@
 import * as React from 'react';
+import { StatusBar } from 'expo-status-bar';
 import { View, Text, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { useNavigation } from "@react-navigation/native";
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 import { DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer';
 import Profile from './Profile';
 import Inicio from './Inicio';
@@ -11,20 +15,28 @@ import Historial from './Historial';
 import About from './About_us';
 import Rate from './Rate_us';
 import Contac from './Contact';
+import Settings from './Settings';
+import Langua from './Language';
 import { NativeBaseProvider, Stack } from 'native-base';
 import AppStack from '../navigation/AppStack';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { DrawerItem } from '@react-navigation/drawer';
+import { TouchableOpacity } from 'react-native';
+
+import { Box,   HStack, Icon, Menu, Pressable } from "native-base";
 
 
 function Feed() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{  }}>
      
        <Inicio />
           
     </View> 
   );
 }
+
+
 
 function Article() {
   return (
@@ -44,14 +56,14 @@ function Contacts() {
   
   function Storedcars() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{  }}>
         <Storedc/>
       </View>
     );
   }
   function History() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ }}>
         <Historial />
       </View>
     );
@@ -66,7 +78,7 @@ function Contacts() {
   }
   function Rateus() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{}}>
         <Rate />
       </View>
     );
@@ -76,10 +88,44 @@ function Contacts() {
 
 const Drawer = createDrawerNavigator();
 
-function MyDrawer() {
-  return (
+
+function MyDrawer() { 
+
+  const navigation = useNavigation();
     
+const goToSettings = () => {
+  navigation.navigate("Settings");
+}
+
+const goToLanguage = () => {
+    navigation.navigate("Language");
+  }
+  
+  return (
     <NativeBaseProvider>
+      <HStack bg="#6B0000" px="1" py="3" justifyContent="space-between" alignItems="center" w="100%">
+        <HStack>
+        </HStack>
+        <HStack>
+          <Menu 
+            backgroundColor="#fff"
+            w="190" 
+            trigger={triggerProps => {
+              return <Pressable accessibilityLabel="More options menu" {...triggerProps}>
+                      <Icon 
+                        as={<Ionicons name="ellipsis-vertical"/>} 
+                        size="md"
+                        ml="2" 
+                        color="dark" 
+                        mr='3'/>
+                    </Pressable>
+              }}>
+            <Menu.Item onPress={goToSettings} >Settings</Menu.Item>
+            <Menu.Item onPress={goToLanguage}>Language</Menu.Item>
+          </Menu>
+        </HStack>
+      </HStack>
+  
     <Drawer.Navigator  useLegacyImplementation
       drawerContent={
         (props) => {
@@ -135,8 +181,11 @@ function MyDrawer() {
       <Drawer.Screen name="Profile" component={Profile} />
       <Drawer.Screen name="About Us" component={Aboutus} />
       <Drawer.Screen name="Rate Us" component={Rateus} />
+
     </Drawer.Navigator>
     </NativeBaseProvider>
+
+
   );
 }
 

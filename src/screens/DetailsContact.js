@@ -51,6 +51,7 @@ const DetailsContacts = (props) => {
             {text: 'No', onPress: () => console.log(false)},
         ])
     }
+    
     const updateContact = async() => {
         const dbRef = firebase.db.collection('users').doc(user.id);
         await dbRef.set({
