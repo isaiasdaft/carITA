@@ -1,10 +1,12 @@
 import * as React from "react";
-import { StyleSheet, TextInput } from "react-native";
+import { StyleSheet, TextInput, Platform, DatePickerIOSBase } from "react-native";
 import { Box, Heading, VStack, FormControl, Input, Button, Center, NativeBaseProvider, Image, Link, Text, ScrollView, View } from "native-base";
 import { useNavigation } from "@react-navigation/native";
+import DateTimePicker from '@react-native-community/datetimepicker';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from "react";
 import firebase from "../../firebase-config";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 
 const Regis = (props) => {
@@ -35,7 +37,7 @@ const Regis = (props) => {
           date: state.date,
           description: state.year,
         })
-        props.navigation.navigate("InfoQuote"); 
+        props.navigation.navigate("Home");
 
       } catch (error) {
         console.log(error);
@@ -43,89 +45,164 @@ const Regis = (props) => {
     }
   }
 
+  const [isPickerShow, setIsPickerShow] = useState(false);
+  const [date, setDate] = useState(new Date(Date.now()));
+
+  const showPicker = () => {
+    setIsPickerShow(true);
+  };
+
+  const onChange = (event, value) => {
+    setDate(value);
+    if (Platform.OS === 'android') {
+      setIsPickerShow(false);
+    }
+  };
+
+
+
 
   return (
-      <SafeAreaView>
-        <ScrollView style={styles.container}>
-          <View>
-            <View>
-          <Heading size="md" color="coolGray.800" _dark={{
-            color: "warmGray.50"
-          }} fontWeight="semibold">
-            Crear nueva cita
-          </Heading>
-          </View>
-         
-         <View>
-           <Heading mt="1" color="coolGray.600" _dark={{
-            color: "warmGray.200"
-          }} fontWeight="medium" size="xs">
-            Ingresa los datos de la cita
-          </Heading>
-          </View>
-          <VStack space={3} mt="5">
-            <FormControl>
-              <FormControl.Label>Nombre del cliente</FormControl.Label>
-              <Input
-                onChangeText={(value) => handleChangeText('namerUser', value)}
-              />
-            </FormControl>
-            <FormControl>
-              <FormControl.Label>Fabricante del Vehículo Marca</FormControl.Label>
-              <Input
-                onChangeText={(value) => handleChangeText('marca', value)}
-              />
-            </FormControl>
-            <FormControl>
-              <FormControl.Label> Modelo </FormControl.Label>
-              <Input
-                onChangeText={(value) => handleChangeText('model', value)}
-              />
-            </FormControl>
-            <FormControl>
-              <FormControl.Label>Año</FormControl.Label>
-              <Input
-                onChangeText={(value) => handleChangeText('year', value)}
-              />
-            </FormControl>
-            <FormControl>
-              <FormControl.Label>Fecha de llegada</FormControl.Label>
-              <Input
-                onChangeText={(value) => handleChangeText('date', value)} />
-            </FormControl>
-            <FormControl>
-              <FormControl.Label>Descrpción del auto</FormControl.Label>
-              <Input
-                onChangeText={(value) => handleChangeText('description', value)}
-              />
-            </FormControl>
+    <ScrollView style={styles.containerScroll}>
+      <View>
+        <Heading size="md" color="coolGray.800" _dark={{
+          color: "warmGray.50"
+        }} fontWeight="semibold">
+          <Text> Crear una nueva cita </Text>
+        </Heading>
+      </View>
+      <View>
+        <Heading mt="1" color="coolGray.600" _dark={{
+          color: "warmGray.200"
+        }} fontWeight="medium" size="xs">
+          Ingresa los datos de la cita
+        </Heading>
+      </View>
+      <View>
+        <VStack space={1}>
+          <FormControl>
+            <FormControl.Label>Nombre del cliente</FormControl.Label>
+            <Input
+              onChangeText={(value) => handleChangeText('namerUser', value)}
+            />
+          </FormControl>
+          <FormControl>
+            <FormControl.Label>Fabricante del Vehículo Marca</FormControl.Label>
+            <Input
+              onChangeText={(value) => handleChangeText('marca', value)}
+            />
+          </FormControl>
+          <FormControl>
+            <FormControl.Label> Modelo </FormControl.Label>
+            <Input
+              onChangeText={(value) => handleChangeText('model', value)}
+            />
+          </FormControl>
+          <FormControl>
+            <FormControl.Label>Año</FormControl.Label>
+            <Input
+              onChangeText={(value) => handleChangeText('year', value)}
+            />
+          </FormControl>
+          <FormControl>
+            <FormControl.Label>Fecha de llegada</FormControl.Label>
+            <Input
+              onChangeText={(value) => handleChangeText('date', value)} />
+          </FormControl>
+          <FormControl>
+            <FormControl.Label>Descrpción del auto</FormControl.Label>
+            <Input
+              onChangeText={(value) => handleChangeText('description', value)}
+            />
+          </FormControl>
+          <View style={styles.container}>
+            {/* Display the selected date */}
+            <View style={styles.pickedDateContainer}>
+              <Text style={styles.pickedDate}>{date.toUTCString()}</Text>
+            </View>
 
+            {/* The button that used to trigger the date picker */}
+            {!isPickerShow && (
+              <View style={styles.btnContainer}>
+                <Button title="Show Picker" color="purple" onPress={showPicker} />
+              </View>
+            )}
+
+            {/* The date picker */}
+            {isPickerShow && (
+              <DateTimePicker
+                value={date}
+                mode={'date'}
+                display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                is24Hour={true}
+                onChange={onChange}
+                style={styles.datePicker}
+              />
+            )}
+          </View>
+
+          <View>
             <Button mt="2" colorScheme="indigo"
               onPress={() => saveNewApponiment()}
               bg="#015D52">
               guardar
             </Button>
-
-          </VStack>
           </View>
-        </ScrollView>
-      </SafeAreaView>
-    
+        </VStack>
+        <View>
+          <Text>
+          </Text>
+        </View>
+        <View>
+          <Text></Text>
+        </View>
+        <View>
+          <Text></Text>
+        </View>
+      </View>
+    </ScrollView>
+
+
   );
 };
 
 const styles = StyleSheet.create({
-  inputGroup: {
-    flex: 1,
-    padding: 0,
-    marginBottom: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: '#015D52'
-  },
+  
   container: {
+    flexGrow: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     flex: 1,
-    padding: 15,
-  }
-})
+    justifyContent: 'center',
+    padding: 30,
+  },
+  containerScroll:{
+    padding:30,
+    flex:1
+  },
+  pickedDateContainer: {
+    padding: 20,
+    backgroundColor: '#eee',
+    borderRadius: 10,
+  },
+  pickedDate: {
+    fontSize: 18,
+    color: 'black',
+  },
+  btnContainer: {
+    padding: 30,
+  },
+  // This only works on iOS
+  datePicker: {
+    width: 320,
+    height: 260,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+
+
+});
 
 export default Regis;

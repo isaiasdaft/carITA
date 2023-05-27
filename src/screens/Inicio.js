@@ -8,7 +8,7 @@ import {
   Text,
 } from 'react-native';
 import { Card } from 'react-native-paper';
-import { Box, FlatList, Heading, Avatar, HStack, VStack, Spacer, Center, NativeBaseProvider, Button } from "native-base";
+import { Box, FlatList, Heading, Avatar, HStack, VStack, Spacer, Center, NativeBaseProvider, Button, ScrollView } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 
 
@@ -28,6 +28,7 @@ const Inicio = () => {
 
 
   return (
+    <ScrollView>
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
         <Text style={styles.titleStyle}>
@@ -70,6 +71,7 @@ const Inicio = () => {
         </View>
       </View>
     </SafeAreaView>
+    </ScrollView>
   );
 };
 
@@ -97,8 +99,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     right: 30,
     bottom: 30,
-    marginTop: 270,
-    marginLeft: 360
+    marginTop: 40,
+    marginLeft: 260
   },
   floatingButtonStyle: {
     resizeMode: 'contain',

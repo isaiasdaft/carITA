@@ -19,6 +19,7 @@
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
     "@firebase/auth": "^0.23.2",
+    "@react-native-community/datetimepicker": "^7.1.0",
     "@react-navigation/drawer": "^6.6.2",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
@@ -34,6 +35,7 @@
     "react-native": "0.64.3",
     "react-native-elements": "^3.4.3",
     "react-native-gesture-handler": "~2.1.0",
+    "react-native-modern-datepicker": "^1.0.0-beta.91",
     "react-native-paper": "^5.8.0",
     "react-native-reanimated": "~2.3.1",
     "react-native-safe-area-context": "3.3.2",
