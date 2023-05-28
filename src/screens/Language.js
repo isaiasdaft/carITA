@@ -1,15 +1,33 @@
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
-
-// Native base imports
-import { Button } from "native-base";
+import { Button, Radio, ScrollView, Switch, Heading, HStack, Text, Divider } from "native-base";
 
 const Language = ({ navigation }) => {
+
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Language</Text>
-      <Button mt='5' onPress={() => navigation.goBack()}>Go Back</Button>
-    </View>
+    <ScrollView>
+      <View>
+        <Text></Text>
+      </View>
+      <View>
+        <HStack alignItems="center" space={4}>
+          <Text fontSize={28} marginLeft={5}>Español</Text>
+          <Switch marginLeft={150} size="lg" colorScheme="emerald" />
+        </HStack>
+      </View>
+      <Divider my="2" _light={{
+        bg: "muted.800"
+      }} _dark={{
+        bg: "muted.50"
+      }} />
+      <View>
+        <HStack alignItems="center" space={4}>
+          <Text fontSize={28} marginLeft={5}>Ingles</Text>
+          <Switch marginLeft={180} size="lg" colorScheme="emerald" />
+        </HStack>
+      </View>
+
+    </ScrollView>
   )
 }
 

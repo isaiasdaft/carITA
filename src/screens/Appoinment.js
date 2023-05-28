@@ -37,6 +37,7 @@ const Regis = (props) => {
           date: state.date,
           description: state.year,
         })
+        alert("La cita ha sido agendada.");
         props.navigation.navigate("Home");
 
       } catch (error) {
@@ -121,14 +122,14 @@ const Regis = (props) => {
               <Text style={styles.pickedDate}>{date.toUTCString()}</Text>
             </View>
 
-            {/* The button that used to trigger the date picker */}
+            {}
             {!isPickerShow && (
               <View style={styles.btnContainer}>
-                <Button title="Show Picker" color="purple" onPress={showPicker} />
+                <Button title="agendar fecha" color="#0613b8" onPress={showPicker}><Text>Agendar fecha</Text></Button>     
               </View>
             )}
 
-            {/* The date picker */}
+            {}
             {isPickerShow && (
               <DateTimePicker
                 value={date}
@@ -137,12 +138,12 @@ const Regis = (props) => {
                 is24Hour={true}
                 onChange={onChange}
                 style={styles.datePicker}
-              />
+              /> 
             )}
           </View>
 
           <View>
-            <Button mt="2" colorScheme="indigo"
+            <Button mt="1" colorScheme="indigo"
               onPress={() => saveNewApponiment()}
               bg="#015D52">
               guardar
@@ -152,6 +153,9 @@ const Regis = (props) => {
         <View>
           <Text>
           </Text>
+        </View>
+        <View>
+          <Text></Text>
         </View>
         <View>
           <Text></Text>
@@ -179,11 +183,11 @@ const styles = StyleSheet.create({
   },
   containerScroll:{
     padding:30,
-    flex:1
+  
   },
   pickedDateContainer: {
     padding: 20,
-    backgroundColor: '#eee',
+    backgroundColor: '#d5f5f5',
     borderRadius: 10,
   },
   pickedDate: {
@@ -191,7 +195,9 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   btnContainer: {
-    padding: 30,
+    padding: 15,
+    
+    
   },
   // This only works on iOS
   datePicker: {
