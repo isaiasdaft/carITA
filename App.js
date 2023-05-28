@@ -17,6 +17,7 @@ import Language from './src/screens/Language';
 import Forgot from './src/screens/ForgotPassword';
 import { NativeBaseProvider } from 'native-base';
 import MyDrawer from './src/screens/Drawer';
+import SplashScreen from './src/screens/SplashScreen';
 import AppStack from './src/navigation/AppStack';
 import VerifiedAcc from './src/screens/VerifiedAccount';
 
@@ -24,6 +25,26 @@ import VerifiedAcc from './src/screens/VerifiedAccount';
 const Stack = createStackNavigator();
 
 export default function App() {
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    // Simular una operación de carga
+    // Aquí puedes realizar cualquier tarea de inicialización de tu aplicación
+
+    // Redirigir a la siguiente pantalla después de 3 segundos
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
+
+    // Limpiar el temporizador al desmontar el componente
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) { 
+
+    return <NativeBaseProvider><SplashScreen /></NativeBaseProvider>
+    ;
+  }
   
   return (
     <NativeBaseProvider>
