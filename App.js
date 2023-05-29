@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -54,17 +53,29 @@ export default function App() {
                 headerStyle: {
                 backgroundColor: '#6B0000', 
               },
+              headerTitleStyle: {
+                color: 'white'
+              },
+              title:"Inicar sesión",
+
             }}/>
              <Stack.Screen name="Register" component={Regis} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
               },
+              headerTitleStyle: {
+                color: 'white'
+              }, 
+              title: "Registrarse"
             }}/>
             
           <Stack.Screen name="Home" component={MyDrawer} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
                 
+              },
+              headerTitleStyle: {
+                color: 'white'
               },
                  headerShown: false,
             }}/>
@@ -73,59 +84,100 @@ export default function App() {
                 headerStyle: {
                 backgroundColor: '#6B0000', 
               },
+              headerTitleStyle: {
+                color: 'white'
+              }
             }}/>
                <Stack.Screen name="ConfirmAccount" component={Confirm} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
               },
+              headerTitleStyle: {
+                color: 'white'
+              }, 
+              title: "Confirmar Cuenta"
             }}/>
           <Stack.Screen name="forget" component={Forgot} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
+                
               },
+              headerTitleStyle: {
+                color: 'white',
+              }, 
+              title: "Recuperar contraseña"
             }}/>
             <Stack.Screen name="Settings" component={Settings} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
               },
+              headerTitleStyle: {
+                color: 'white'
+              }, 
+              title: "Settings"
             }}/>
             <Stack.Screen name="Language" component={Language} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
               },
+              headerTitleStyle: {
+                color: 'white'
+              }, 
+              title: "Lenguaje"
             }}/>
 
             <Stack.Screen name="Appoinment" component={Appoinment} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
               },
+              headerTitleStyle: {
+                color: 'white'
+              },
+              
             }}/> 
             <Stack.Screen name="InformationCustomer" component={InfoQuote} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
               },
+              headerTitleStyle: {
+                color: 'white'
+              }, 
+              title: "Información de la cita"
             }}/> 
              <Stack.Screen name="DetailsAppoinment" component={DetailsAppoinment} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
               },
+              headerTitleStyle: {
+                color: 'white'
+              }, 
+              title: "Detalles del trabajo"
             }}/> 
 
             <Stack.Screen name="Contact" component={Contact} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
               },
+              headerTitleStyle: {
+                color: 'white'
+              }
             }}/>    
                <Stack.Screen name="CreateContact" component={CreateContact} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
-              }, title: 'create contact',
+              }, title: 'Crear nuevo contacto',
+              headerTitleStyle: {
+                color: 'white'
+              }
             }}/>  
             <Stack.Screen name="DetailsContact" component={DetailsContact} options={{
                 headerStyle: {
                 backgroundColor: '#6B0000', 
                 
-              },title: 'Details contact',
+              },title: 'Detalles de contacto',
+              headerTitleStyle: {
+                color: 'white'
+              }
             }}/>
 
         </Stack.Navigator>
@@ -133,9 +185,5 @@ export default function App() {
       </NativeBaseProvider>
       );
 }
-
-
-
-
 
 
